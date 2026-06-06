@@ -152,7 +152,7 @@ body::after {
   line-height:2.1;
   color:rgba(248,240,220,.8);
   direction:rtl;
-  text-align:right;
+  text-align:center;
   margin-top:10px;
 }
 .reference {
@@ -591,10 +591,17 @@ async function buildCanvas() {
   c.textBaseline= 'top';
   c.fillText('ST. GEORGE COPTIC ORTHODOX CHURCH · BROOKLYN', CX, 30);
 
-  /* Cross symbol */
+  /* Draw Coptic cross */
   c.fillStyle = '#D4A017';
-  c.font      = '80px serif';
-  c.fillText('\u2769', CX, 72);
+  const cx0=CX, cy0=110, arm=36, bar=11;
+  c.fillRect(cx0-bar/2, cy0-arm, bar, arm*2); /* vertical */
+  c.fillRect(cx0-arm,   cy0-bar/2, arm*2, bar); /* horizontal */
+  /* serif tips at each end */
+  const sw=7, sd=6;
+  c.fillRect(cx0-bar/2-sw/2, cy0-arm-sd, bar+sw, sd);   /* top tip */
+  c.fillRect(cx0-bar/2-sw/2, cy0+arm,    bar+sw, sd);   /* bottom tip */
+  c.fillRect(cx0-arm-sd, cy0-bar/2-sw/2, sd, bar+sw);   /* left tip */
+  c.fillRect(cx0+arm,    cy0-bar/2-sw/2, sd, bar+sw);   /* right tip */
 
   /* Retreat label */
   c.fillStyle = 'rgba(212,160,23,0.65)';
@@ -660,7 +667,7 @@ async function buildCanvas() {
   /* Bottom label */
   c.fillStyle = 'rgba(212,160,23,0.5)';
   c.font      = '400 20px "Cinzel", Georgia, serif';
-  c.fillText('\u2769  DAILY VERSE  \u00B7  ST. GEORGE BROOKLYN  \u2769', CX, y + 16);
+  c.fillText('\u2629  DAILY VERSE  \u00B7  ST. GEORGE BROOKLYN  \u2629', CX, y + 16);
 
   return cv;
 }
