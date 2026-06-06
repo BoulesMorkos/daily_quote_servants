@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#080F20">
+<title>Daily Verse · Wise for Salvation · Retreat 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:   #080F20;
+  --blue:   #0D2554;
+  --blue2:  #1A3A80;
+  --gold:   #D4A017;
+  --goldt:  #F0C040;
+  --cream:  #FBF7EE;
+  --cream2: #C8BFA8;
+  --muted:  #7A90B8;
+  --white:  #FFFFFF;
+}
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+html, body { height:100%; }
+body {
+  min-height:100vh;
+  background:var(--navy);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  font-family:'Crimson Pro',serif;
+  color:var(--cream);
+  padding:16px;
+  position:relative;
+  overflow-x:hidden;
+}
+body::before {
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg width='70' height='70' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='%23D4A017' stroke-width='.4' opacity='.09' fill='none'%3E%3Cline x1='35' y1='8' x2='35' y2='62'/%3E%3Cline x1='8' y1='26' x2='62' y2='26'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:70px 70px;
+  pointer-events:none;
+  z-index:0;
+}
+body::after {
+  content:'';
+  position:fixed;
+  top:-220px; left:50%;
+  transform:translateX(-50%);
+  width:700px; height:500px;
+  background:radial-gradient(ellipse, rgba(212,160,23,.1) 0%, transparent 70%);
+  pointer-events:none;
+  z-index:0;
+}
+
+/* ── CARD ── */
+.card {
+  position:relative;
+  z-index:1;
+  width:100%;
+  max-width:720px;
+  background:rgba(13,37,84,.5);
+  border:1px solid rgba(212,160,23,.25);
+  border-radius:22px;
+  padding:44px 48px 38px;
+  backdrop-filter:blur(14px);
+  box-shadow:0 24px 80px rgba(0,0,0,.5);
+  text-align:center;
+}
+.card::before {
+  content:'';
+  position:absolute;
+  top:0; left:12%; right:12%;
+  height:3px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  border-radius:2px;
+}
+
+/* ── HEADER ── */
+.church-lbl {
+  font-family:'Cinzel',serif;
+  font-size:.6rem;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:4px;
+}
+.retreat-lbl {
+  font-family:'Cinzel',serif;
+  font-size:.55rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:14px;
+}
+.cross-sym {
+  font-size:2.4rem;
+  color:var(--gold);
+  line-height:1;
+  display:block;
+  margin-bottom:4px;
+  animation:glow 4s ease-in-out infinite;
+}
+@keyframes glow {
+  0%,100%{opacity:1; text-shadow:0 0 12px rgba(212,160,23,.3)}
+  50%     {opacity:.7; text-shadow:0 0 24px rgba(212,160,23,.6)}
+}
+
+/* ── DATE BADGE ── */
+.date-badge {
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-family:'Cinzel',serif;
+  font-size:.65rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--navy);
+  background:var(--gold);
+  padding:.3rem 1.1rem;
+  border-radius:30px;
+  margin:12px 0 28px;
+  font-weight:600;
+}
+
+/* ── RULE ── */
+.rule {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:18px 0;
+}
+.rule::before, .rule::after {
+  content:'';
+  flex:1;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(212,160,23,.35),transparent);
+}
+.rule span { color:var(--gold); font-size:.9rem; opacity:.65; }
+
+/* ── VERSE TEXT ── */
+.verse-en {
+  font-size:clamp(1.25rem,3vw,1.65rem);
+  line-height:1.8;
+  color:var(--cream);
+  font-style:italic;
+  letter-spacing:.01em;
+}
+.verse-ar {
+  font-family:'Amiri',serif;
+  font-size:clamp(1.15rem,2.8vw,1.5rem);
+  line-height:2.1;
+  color:rgba(248,240,220,.8);
+  direction:rtl;
+  text-align:right;
+  margin-top:10px;
+}
+.reference {
+  font-family:'Cinzel',serif;
+  font-size:.78rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-top:16px;
+  font-weight:600;
+}
+.today-tag {
+  font-family:'Cinzel',serif;
+  font-size:.55rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--goldt);
+  margin-top:4px;
+  opacity:.75;
+  min-height:1em;
+}
+
+
+
+/* ── ACTION BUTTONS ── */
+.action-row {
+  display:flex;
+  gap:10px;
+  margin-top:28px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.act-btn {
+  display:flex;
+  align-items:center;
+  gap:7px;
+  font-family:'Cinzel',serif;
+  font-size:.62rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-weight:600;
+  padding:.6rem 1.3rem;
+  border-radius:30px;
+  border:none;
+  cursor:pointer;
+  transition:all .2s;
+  flex:1;
+  min-width:130px;
+  max-width:180px;
+  justify-content:center;
+}
+.act-btn:active { transform:scale(.94); }
+.btn-share {
+  background:var(--gold);
+  color:var(--navy);
+}
+.btn-share:hover { background:var(--goldt); box-shadow:0 4px 18px rgba(212,160,23,.35); }
+.btn-save {
+  background:rgba(212,160,23,.12);
+  color:var(--gold);
+  border:1px solid rgba(212,160,23,.35);
+}
+.btn-save:hover { background:rgba(212,160,23,.22); }
+
+/* ── TOAST ── */
+.toast {
+  position:fixed;
+  bottom:28px;
+  left:50%;
+  transform:translateX(-50%) translateY(80px);
+  background:rgba(13,37,84,.95);
+  border:1px solid rgba(212,160,23,.35);
+  color:var(--cream);
+  font-family:'Cinzel',serif;
+  font-size:.65rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  padding:.65rem 1.5rem;
+  border-radius:30px;
+  backdrop-filter:blur(10px);
+  z-index:1000;
+  transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+  white-space:nowrap;
+}
+.toast.show { transform:translateX(-50%) translateY(0); }
+
+/* ── FOOTER ── */
+.footer {
+  position:relative;
+  z-index:1;
+  margin-top:18px;
+  text-align:center;
+}
+.footer p {
+  font-family:'Cinzel',serif;
+  font-size:.55rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:rgba(120,140,180,.45);
+}
+
+/* ── FADE ── */
+.fade-in { animation:fadeIn .45s ease; }
+@keyframes fadeIn {
+  from { opacity:0; transform:translateY(10px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+@media (max-width:520px) {
+  .card { padding:32px 20px 28px; border-radius:16px; }
+  .act-btn { font-size:.58rem; padding:.55rem 1rem; min-width:120px; }
+}
+</style>
+</head>
+<body>
+
+<div class="card" id="card">
+  <div class="church-lbl">St. George Coptic Orthodox Church &middot; Brooklyn, NY</div>
+  <div class="retreat-lbl">&#10022; Wise for Salvation &middot; Retreat 2026 &#10022;</div>
+  <span class="cross-sym">&#9769;</span>
+
+  <div class="date-badge" id="dateBadge">&#128197;&nbsp;<span id="dateText"></span></div>
+
+  <div class="rule"><span>&#10013;</span></div>
+
+  <div class="verse-en"  id="verseEn"></div>
+  <div class="verse-ar"  id="verseAr"></div>
+  <div class="reference" id="verseRef"></div>
+
+  <div class="rule"><span>&#10013;</span></div>
+
+  <div class="action-row">
+    <button class="act-btn btn-share" onclick="shareVerse()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+      Share
+    </button>
+    <button class="act-btn btn-save" onclick="downloadVerse()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Save Image
+    </button>
+  </div>
+</div>
+
+<div class="footer">
+  <p>&#9769; &nbsp; Daily Verse &middot; Retreat 2026 &middot; St. George Brooklyn &nbsp; &#9769;</p>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ══════════════════════════════════════════
+   VERSES — Arabic: Van Dyck (فان دايك) 1865
+   ══════════════════════════════════════════ */
+const VERSES = [
+  /* ── 2 Timothy (retreat theme) ── */
+  { en:"And that from a child thou hast known the holy scriptures, which are able to make thee wise unto salvation through faith which is in Christ Jesus.",
+    ar:"وَأَنَّكَ مِنَ الطُّفُولِيَّةِ تَعْلَمُ الْكُتُبَ الْمُقَدَّسَةَ، الْقَادِرَةَ أَنْ تُحَكِّمَكَ لِلْخَلاَصِ، بِالإِيمَانِ الَّذِي فِي الْمَسِيحِ يَسُوعَ.", ref:"2 Timothy 3:15" },
+  { en:"All scripture is given by inspiration of God, and is profitable for doctrine, for reproof, for correction, for instruction in righteousness.",
+    ar:"كُلُّ الْكِتَابِ هُوَ مُوحًى بِهِ مِنَ اللهِ، وَنَافِعٌ لِلتَّعْلِيمِ وَالتَّوْبِيخِ، لِلتَّقْوِيمِ وَالتَّأْدِيبِ الَّذِي فِي الْبِرِّ.", ref:"2 Timothy 3:16" },
+  { en:"That the man of God may be perfect, throughly furnished unto all good works.",
+    ar:"لِيَكُونَ إِنْسَانُ اللهِ كَامِلاً، مُتَأَهِّبًا لِكُلِّ عَمَلٍ صَالِحٍ.", ref:"2 Timothy 3:17" },
+  { en:"For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.",
+    ar:"لأَنَّ اللهَ لَمْ يُعْطِنَا رُوحَ الْفَشَلِ، بَلْ رُوحَ الْقُوَّةِ وَالْمَحَبَّةِ وَالنِّظَامِ.", ref:"2 Timothy 1:7" },
+  { en:"Preach the word; be instant in season, out of season; reprove, rebuke, exhort with all longsuffering and doctrine.",
+    ar:"كِرِزْ بِالْكَلِمَةِ، اسْتَعِدَّ فِي حِينٍ وَبِغَيْرِ حِينٍ، وَبَكِّتْ وَانْتَهِرْ وَعِظْ، بِكُلِّ أَنَاةٍ وَتَعْلِيمٍ.", ref:"2 Timothy 4:2" },
+  { en:"Study to shew thyself approved unto God, a workman that needeth not to be ashamed, rightly dividing the word of truth.",
+    ar:"اجْتَهِدْ أَنْ تُقِيمَ نَفْسَكَ لِلهِ مُزَكًّى، عَامِلاً غَيْرَ خَجِلٍ، يَشُقُّ كَلِمَةَ الْحَقِّ بِالاسْتِقَامَةِ.", ref:"2 Timothy 2:15" },
+  { en:"I have fought a good fight, I have finished my course, I have kept the faith.",
+    ar:"قَدْ جَاهَدْتُ الْجِهَادَ الْحَسَنَ، أَكْمَلْتُ السَّعْيَ، حَفِظْتُ الإِيمَانَ.", ref:"2 Timothy 4:7" },
+  { en:"Henceforth there is laid up for me a crown of righteousness, which the Lord, the righteous judge, shall give me at that day.",
+    ar:"أَمَّا الآنَ فَقَدْ وُضِعَ لِي إِكْلِيلُ الْبِرِّ الَّذِي يَهَبُهُ لِي فِي ذلِكَ الْيَوْمِ الرَّبُّ الدَّيَّانُ الْعَادِلُ.", ref:"2 Timothy 4:8" },
+  { en:"The Lord knoweth them that are his. And let every one that nameth the name of Christ depart from iniquity.",
+    ar:"عَرَفَ الرَّبُّ الَّذِينَ هُمْ لَهُ، وَلْيُقْلِعْ عَنِ الظُّلْمِ كُلُّ مَنْ يَذْكُرُ اسْمَ الرَّبِّ.", ref:"2 Timothy 2:19" },
+  { en:"If we suffer, we shall also reign with him: if we deny him, he also will deny us.",
+    ar:"إِنْ كُنَّا نَتَأَلَّمُ مَعَهُ فَسَنَمْلِكُ أَيْضًا مَعَهُ. إِنْ أَنْكَرْنَاهُ فَهُوَ أَيْضًا سَيُنْكِرُنَا.", ref:"2 Timothy 2:12" },
+
+  /* ── Psalms ── */
+  { en:"The LORD is my shepherd; I shall not want.",
+    ar:"اَلرَّبُّ رَاعِيَّ فَلاَ يُعْوِزُنِي شَيْءٌ.", ref:"Psalm 23:1" },
+  { en:"Thy word is a lamp unto my feet, and a light unto my path.",
+    ar:"كَلاَمُكَ سِرَاجٌ لِرِجْلِي وَنُورٌ لِسَبِيلِي.", ref:"Psalm 119:105" },
+  { en:"I will praise thee; for I am fearfully and wonderfully made: marvellous are thy works.",
+    ar:"أَحْمَدُكَ مِنْ أَجْلِ أَنِّي قَدْ جُبِلْتُ بِصُورَةٍ تُبْعِثُ الْخَشْيَةَ وَالإِعْجَابَ. عَجِيبَةٌ أَعْمَالُكَ.", ref:"Psalm 139:14" },
+  { en:"Be still, and know that I am God: I will be exalted among the heathen, I will be exalted in the earth.",
+    ar:"تَوَقَّفُوا وَاعْلَمُوا أَنِّي أَنَا اللهُ. أَتَعَالَى بَيْنَ الأُمَمِ. أَتَعَالَى فِي الأَرْضِ.", ref:"Psalm 46:10" },
+  { en:"Create in me a clean heart, O God; and renew a right spirit within me.",
+    ar:"اِخْلُقْ فِيَّ قَلْبًا نَقِيًّا يَا اللهُ، وَجَدِّدْ فِي رُوحًا مُسْتَقِيمًا.", ref:"Psalm 51:10" },
+  { en:"The LORD is my light and my salvation; whom shall I fear? the LORD is the strength of my life; of whom shall I be afraid?",
+    ar:"اَلرَّبُّ نُورِي وَخَلاَصِي، مَنْ أَخَافُ؟ الرَّبُّ حِصْنُ حَيَاتِي، مَنْ أَرْهَبُ؟", ref:"Psalm 27:1" },
+  { en:"How lovely is thy dwelling place, O LORD of hosts! My soul longeth, yea, even fainteth for the courts of the LORD.",
+    ar:"مَا أَحْلَى مَسَاكِنَكَ يَا رَبَّ الْجُنُودِ! تَشْتَاقُ نَفْسِي وَتَتُوقُ إِلَى دِيَارِ الرَّبِّ.", ref:"Psalm 84:1-2" },
+  { en:"This is the day which the LORD hath made; we will rejoice and be glad in it.",
+    ar:"هذَا هُوَ الْيَوْمُ الَّذِي صَنَعَهُ الرَّبُّ. نَبْتَهِجُ وَنَفْرَحُ فِيهِ.", ref:"Psalm 118:24" },
+  { en:"I will lift up mine eyes unto the hills, from whence cometh my help. My help cometh from the LORD, which made heaven and earth.",
+    ar:"أَرْفَعُ عَيْنَيَّ إِلَى الْجِبَالِ. مِنْ أَيْنَ يَأْتِي عَوْنِي؟ عَوْنِي مِنْ عِنْدِ الرَّبِّ صَانِعِ السَّمَاءِ وَالأَرْضِ.", ref:"Psalm 121:1-2" },
+  { en:"O give thanks unto the LORD; for he is good: for his mercy endureth for ever.",
+    ar:"اِحْمَدُوا الرَّبَّ لأَنَّهُ صَالِحٌ، لأَنَّ إِلَى الأَبَدِ رَحْمَتَهُ.", ref:"Psalm 136:1" },
+  { en:"I will be glad and rejoice in thee: I will sing praise to thy name, O thou most High.",
+    ar:"فَأَفْرَحَ وَأَبْتَهِجَ بِكَ. أُرَتِّلُ لاسْمِكَ أَيُّهَا الْعَلِيُّ.", ref:"Psalm 9:2" },
+  { en:"Delight thyself also in the LORD; and he shall give thee the desires of thine heart.",
+    ar:"وَتَلَذَّذْ بِالرَّبِّ فَيُعْطِيَكَ مَطَالِبَ قَلْبِكَ.", ref:"Psalm 37:4" },
+  { en:"God is our refuge and strength, a very present help in trouble.",
+    ar:"اَللهُ لَنَا مَلْجَأٌ وَقُوَّةٌ، عَوْنًا فِي الضِّيقَاتِ وُجِدَ سَرِيعًا.", ref:"Psalm 46:1" },
+  { en:"Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me.",
+    ar:"أَيْضًا إِذَا سِرْتُ فِي وَادِي ظِلِّ الْمَوْتِ لاَ أَخَافُ شَرًّا، لأَنَّكَ أَنْتَ مَعِي.", ref:"Psalm 23:4" },
+
+  /* ── Proverbs ── */
+  { en:"Trust in the LORD with all thine heart; and lean not unto thine own understanding.",
+    ar:"ثِقْ بِالرَّبِّ مِنْ كُلِّ قَلْبِكَ، وَلاَ تَتَّكِلْ عَلَى فَهْمِكَ أَنْتَ.", ref:"Proverbs 3:5" },
+  { en:"In all thy ways acknowledge him, and he shall direct thy paths.",
+    ar:"فِي كُلِّ طُرُقِكَ اعْتَرِفْ بِهِ، وَهُوَ يُقَوِّمُ أَعْوَجَاءَكَ.", ref:"Proverbs 3:6" },
+  { en:"The fear of the LORD is the beginning of wisdom: and knowledge of the holy is understanding.",
+    ar:"مَخَافَةُ الرَّبِّ رَأْسُ الْحِكْمَةِ، وَمَعْرِفَةُ الْقُدُّوسِ فَهْمٌ.", ref:"Proverbs 9:10" },
+  { en:"Train up a child in the way he should go: and when he is old, he will not depart from it.",
+    ar:"دَرِّبِ الْوَلَدَ عَلَى طَرِيقِهِ فَمَتَى شَاخَ لاَ يَحِيدُ عَنْهُ.", ref:"Proverbs 22:6" },
+
+  /* ── John ── */
+  { en:"For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.",
+    ar:"لأَنَّهُ هكَذَا أَحَبَّ اللهُ الْعَالَمَ حَتَّى بَذَلَ ابْنَهُ الْوَحِيدَ، لِكَيْ لاَ يَهْلِكَ كُلُّ مَنْ يُؤْمِنُ بِهِ بَلْ تَكُونُ لَهُ الْحَيَاةُ الأَبَدِيَّةُ.", ref:"John 3:16" },
+  { en:"Jesus saith unto him, I am the way, the truth, and the life: no man cometh unto the Father, but by me.",
+    ar:"قَالَ لَهُ يَسُوعُ: أَنَا هُوَ الطَّرِيقُ وَالْحَقُّ وَالْحَيَاةُ. لَيْسَ أَحَدٌ يَأْتِي إِلَى الآبِ إِلاَّ بِي.", ref:"John 14:6" },
+  { en:"I am the good shepherd: the good shepherd giveth his life for the sheep.",
+    ar:"أَنَا هُوَ الرَّاعِي الصَّالِحُ. وَالرَّاعِي الصَّالِحُ يَبْذِلُ نَفْسَهُ عَنِ الْخِرَافِ.", ref:"John 10:11" },
+  { en:"Peace I leave with you, my peace I give unto you: not as the world giveth, give I unto you. Let not your heart be troubled, neither let it be afraid.",
+    ar:"اَلسَّلاَمُ أَتْرُكُ لَكُمْ. سَلاَمِي أُعْطِيكُمْ. لَيْسَ كَمَا يُعْطِي الْعَالَمُ أُعْطِيكُمْ أَنَا. لاَ تَضْطَرِبْ قُلُوبُكُمْ وَلاَ تَرْهَبْ.", ref:"John 14:27" },
+  { en:"I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live.",
+    ar:"قَالَ لَهَا يَسُوعُ: أَنَا هُوَ الْقِيَامَةُ وَالْحَيَاةُ. مَنْ آمَنَ بِي وَلَوْ مَاتَ فَسَيَحْيَا.", ref:"John 11:25" },
+  { en:"Abide in me, and I in you. As the branch cannot bear fruit of itself, except it abide in the vine; no more can ye, except ye abide in me.",
+    ar:"اُثْبُتُوا فِيَّ وَأَنَا فِيكُمْ. كَمَا أَنَّ الْغُصْنَ لاَ يَقْدِرُ أَنْ يَأْتِيَ بِثَمَرٍ مِنْ ذَاتِهِ إِنْ لَمْ يَثْبُتْ فِي الْكَرْمَةِ، كَذلِكَ أَنْتُمْ أَيْضًا إِنْ لَمْ تَثْبُتُوا فِيَّ.", ref:"John 15:4" },
+  { en:"Behold, I stand at the door, and knock: if any man hear my voice, and open the door, I will come in to him.",
+    ar:"هَأَنَذَا وَاقِفٌ عَلَى الْبَابِ وَأَقْرَعُ. إِنْ سَمِعَ أَحَدٌ صَوْتِي وَفَتَحَ الْبَابَ أَدْخُلُ إِلَيْهِ.", ref:"Revelation 3:20" },
+
+  /* ── Matthew ── */
+  { en:"Blessed are the pure in heart: for they shall see God.",
+    ar:"طُوبَى لِلأَنْقِيَاءِ الْقَلْبِ لأَنَّهُمْ يُعَايِنُونَ اللهَ.", ref:"Matthew 5:8" },
+  { en:"Come unto me, all ye that labour and are heavy laden, and I will give you rest.",
+    ar:"تَعَالَوْا إِلَيَّ يَا جَمِيعَ الْمُتْعَبِينَ وَالثَّقِيلِي الأَحْمَالِ وَأَنَا أُرِيحُكُمْ.", ref:"Matthew 11:28" },
+  { en:"But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.",
+    ar:"لكِنِ اطْلُبُوا أَوَّلاً مَلَكُوتَ اللهِ وَبِرَّهُ، وَهذِهِ كُلُّهَا تُزَادُ لَكُمْ.", ref:"Matthew 6:33" },
+  { en:"Ask, and it shall be given you; seek, and ye shall find; knock, and it shall be opened unto you.",
+    ar:"اُسْأَلُوا تُعْطَوْا، اُطْلُبُوا تَجِدُوا، اُقْرَعُوا يُفْتَحْ لَكُمْ.", ref:"Matthew 7:7" },
+  { en:"Thou shalt love the Lord thy God with all thy heart, and with all thy soul, and with all thy mind.",
+    ar:"تُحِبُّ الرَّبَّ إِلهَكَ مِنْ كُلِّ قَلْبِكَ وَمِنْ كُلِّ نَفْسِكَ وَمِنْ كُلِّ فِكْرِكَ.", ref:"Matthew 22:37" },
+
+  /* ── Romans ── */
+  { en:"And we know that all things work together for good to them that love God.",
+    ar:"وَنَحْنُ نَعْلَمُ أَنَّ كُلَّ الأَشْيَاءِ تَعْمَلُ مَعًا لِلْخَيْرِ لِلَّذِينَ يُحِبُّونَ اللهَ.", ref:"Romans 8:28" },
+  { en:"For the wages of sin is death; but the gift of God is eternal life through Jesus Christ our Lord.",
+    ar:"لأَنَّ أُجْرَةَ الْخَطِيَّةِ هِيَ مَوْتٌ، وَأَمَّا هِبَةُ اللهِ فَهِيَ حَيَاةٌ أَبَدِيَّةٌ بِالْمَسِيحِ يَسُوعَ رَبِّنَا.", ref:"Romans 6:23" },
+  { en:"If God be for us, who can be against us?",
+    ar:"إِنْ كَانَ اللهُ مَعَنَا فَمَنْ عَلَيْنَا؟", ref:"Romans 8:31" },
+
+  /* ── Philippians ── */
+  { en:"I can do all things through Christ which strengtheneth me.",
+    ar:"أَسْتَطِيعُ كُلَّ شَيْءٍ فِي الْمَسِيحِ الَّذِي يُقَوِّينِي.", ref:"Philippians 4:13" },
+  { en:"And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.",
+    ar:"وَسَلاَمُ اللهِ الَّذِي يَفُوقُ كُلَّ عَقْلٍ سَيَحْفَظُ قُلُوبَكُمْ وَأَذْهَانَكُمْ فِي الْمَسِيحِ يَسُوعَ.", ref:"Philippians 4:7" },
+  { en:"Rejoice in the Lord alway: and again I say, Rejoice.",
+    ar:"اِفْرَحُوا فِي الرَّبِّ كُلَّ حِينٍ، وَأَقُولُ أَيْضًا: افْرَحُوا.", ref:"Philippians 4:4" },
+
+  /* ── 1 Corinthians ── */
+  { en:"Now abideth faith, hope, charity, these three; but the greatest of these is charity.",
+    ar:"وَالآنَ يَثْبُتُ الإِيمَانُ وَالرَّجَاءُ وَالْمَحَبَّةُ، هذِهِ الثَّلاَثَةُ، وَلكِنَّ أَعْظَمَهَا الْمَحَبَّةُ.", ref:"1 Corinthians 13:13" },
+  { en:"Eye hath not seen, nor ear heard, neither have entered into the heart of man, the things which God hath prepared for them that love him.",
+    ar:"مَا لَمْ تَرَهُ عَيْنٌ، وَلَمْ تَسْمَعْهُ أُذُنٌ، وَلَمْ يَخْطُرْ عَلَى بَالِ إِنْسَانٍ: مَا أَعَدَّهُ اللهُ لِلَّذِينَ يُحِبُّونَهُ.", ref:"1 Corinthians 2:9" },
+
+  /* ── Ephesians ── */
+  { en:"For by grace are ye saved through faith; and that not of yourselves: it is the gift of God.",
+    ar:"لأَنَّكُمْ بِالنِّعْمَةِ مُخَلَّصُونَ بِالإِيمَانِ، وَذلِكَ لَيْسَ مِنْكُمْ. هُوَ عَطِيَّةُ اللهِ.", ref:"Ephesians 2:8" },
+  { en:"Be strong in the Lord, and in the power of his might. Put on the whole armour of God.",
+    ar:"تَقَوَّوْا فِي الرَّبِّ وَفِي شِدَّةِ قُوَّتِهِ. الْبَسُوا سِلاَحَ اللهِ الْكَامِلَ.", ref:"Ephesians 6:10-11" },
+
+  /* ── Isaiah ── */
+  { en:"But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles.",
+    ar:"أَمَّا الَّذِينَ يَنْتَظِرُونَ الرَّبَّ فَيَسْتَجِدُّونَ قُوَّةً. يَرْفَعُونَ أَجْنِحَةً كَالنُّسُورِ.", ref:"Isaiah 40:31" },
+  { en:"Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee.",
+    ar:"لاَ تَخَفْ لأَنِّي مَعَكَ. لاَ تَتَلَفَّتْ لأَنِّي إِلهُكَ. أَنَا أَشَدُّدُكَ، وَأَنَا أُعِينُكَ.", ref:"Isaiah 41:10" },
+
+  /* ── Jeremiah ── */
+  { en:"For I know the thoughts that I think toward you, saith the LORD, thoughts of peace, and not of evil, to give you an expected end.",
+    ar:"لأَنِّي أَعْرِفُ الأَفْكَارَ الَّتِي أَنَا مُفَكِّرٌ بِهَا عَنْكُمْ، يَقُولُ الرَّبُّ، أَفْكَارَ سَلاَمٍ لاَ شَرّ، لأُعْطِيَكُمْ آخِرَةً وَرَجَاءً.", ref:"Jeremiah 29:11" },
+
+  /* ── Joshua ── */
+  { en:"Be strong and of a good courage; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest.",
+    ar:"تَشَدَّدْ وَتَشَجَّعْ. لاَ تَخَفْ وَلاَ تَرْتَعِبْ، لأَنَّ الرَّبَّ إِلهَكَ مَعَكَ حَيْثُمَا ذَهَبْتَ.", ref:"Joshua 1:9" },
+
+  /* ── 1 Peter ── */
+  { en:"Casting all your care upon him; for he careth for you.",
+    ar:"مُلْقِينَ كُلَّ هَمِّكُمْ عَلَيْهِ لأَنَّهُ هُوَ يَعْتَنِي بِكُمْ.", ref:"1 Peter 5:7" },
+
+  /* ── James ── */
+  { en:"Draw nigh to God, and he will draw nigh to you.",
+    ar:"اقْتَرِبُوا إِلَى اللهِ فَيَقْتَرِبَ مِنْكُمْ.", ref:"James 4:8" },
+  { en:"If any of you lack wisdom, let him ask of God, that giveth to all men liberally, and it shall be given him.",
+    ar:"وَإِنْ كَانَ أَحَدُكُمْ تُعْوِزُهُ حِكْمَةٌ فَلْيَطْلُبْ مِنَ اللهِ الَّذِي يُعْطِي الْجَمِيعَ بِسَخَاءٍ وَلاَ يُعَيِّرُ، فَسَيُعْطَى لَهُ.", ref:"James 1:5" },
+
+  /* ── 1 John ── */
+  { en:"God is love; and he that dwelleth in love dwelleth in God, and God in him.",
+    ar:"اَللهُ مَحَبَّةٌ، وَمَنْ يَثْبُتُ فِي الْمَحَبَّةِ يَثْبُتُ فِي اللهِ وَاللهُ فِيهِ.", ref:"1 John 4:16" },
+  { en:"If we confess our sins, he is faithful and just to forgive us our sins, and to cleanse us from all unrighteousness.",
+    ar:"إِنِ اعْتَرَفْنَا بِخَطَايَانَا فَهُوَ أَمِينٌ وَعَادِلٌ حَتَّى يَغْفِرَ لَنَا خَطَايَانَا وَيُطَهِّرَنَا مِنْ كُلِّ إِثْمٍ.", ref:"1 John 1:9" },
+
+  /* ── Galatians ── */
+  { en:"But the fruit of the Spirit is love, joy, peace, longsuffering, gentleness, goodness, faith, meekness, temperance.",
+    ar:"وَأَمَّا ثَمَرُ الرُّوحِ فَهُوَ مَحَبَّةٌ، فَرَحٌ، سَلاَمٌ، طُولُ أَنَاةٍ، لُطْفٌ، صَلاَحٌ، إِيمَانٌ، وَدَاعَةٌ، تَعَفُّفٌ.", ref:"Galatians 5:22-23" },
+
+  /* ── Colossians ── */
+  { en:"Let the word of Christ dwell in you richly in all wisdom; teaching and admonishing one another.",
+    ar:"لِتَسْكُنْ فِيكُمْ كَلِمَةُ الْمَسِيحِ بِغِنًى، بِكُلِّ حِكْمَةٍ، مُعَلِّمِينَ وَمُنَبِّهِينَ بَعْضُكُمْ بَعْضًا.", ref:"Colossians 3:16" },
+
+  /* ── Hebrews ── */
+  { en:"Now faith is the substance of things hoped for, the evidence of things not seen.",
+    ar:"وَالإِيمَانُ هُوَ الثِّقَةُ بِمَا يُرْجَى، وَالإِيقَانُ بِأُمُورٍ لاَ تُرَى.", ref:"Hebrews 11:1" },
+  { en:"Jesus Christ the same yesterday, and to day, and for ever.",
+    ar:"يَسُوعُ الْمَسِيحُ هُوَ هُوَ أَمْسًا وَالْيَوْمَ وَإِلَى الأَبَدِ.", ref:"Hebrews 13:8" },
+  { en:"Let us run with patience the race that is set before us, looking unto Jesus the author and finisher of our faith.",
+    ar:"لِنُحَاضِرْ بِالصَّبْرِ فِي الْجِهَادِ الْمَوْضُوعِ أَمَامَنَا، نَاظِرِينَ إِلَى يَسُوعَ رَئِيسِ الإِيمَانِ وَمُكَمِّلِهِ.", ref:"Hebrews 12:1-2" },
+
+  /* ── 1 Timothy ── */
+  { en:"Fight the good fight of faith, lay hold on eternal life, whereunto thou art also called.",
+    ar:"جَاهِدْ جِهَادَ الإِيمَانِ الْحَسَنَ، وَأَمْسِكْ بِالْحَيَاةِ الأَبَدِيَّةِ الَّتِي إِلَيْهَا دُعِيتَ.", ref:"1 Timothy 6:12" },
+
+  /* ── Luke ── */
+  { en:"For with God nothing shall be impossible.",
+    ar:"لأَنَّهُ لَيْسَ شَيْءٌ غَيْرُ مُمْكِنٍ لَدَى اللهِ.", ref:"Luke 1:37" },
+  { en:"For the Son of man is come to seek and to save that which was lost.",
+    ar:"لأَنَّ ابْنَ الإِنْسَانِ قَدْ جَاءَ لِيَطْلُبَ وَيُخَلِّصَ مَا قَدْ ضَاعَ.", ref:"Luke 19:10" },
+
+  /* ── Revelation ── */
+  { en:"He that overcometh shall inherit all things; and I will be his God, and he shall be my son.",
+    ar:"مَنْ يَغْلِبُ يَرِثُ كُلَّ شَيْءٍ، وَأَكُونُ لَهُ إِلهًا وَهُوَ يَكُونُ لِي ابْنًا.", ref:"Revelation 21:7" }
+];
+
+/* ══════════════════════════════════
+   NY TIMEZONE HELPERS
+   ══════════════════════════════════ */
+function getNYDateObj() {
+  const nyStr = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/New_York',
+    year:'numeric', month:'2-digit', day:'2-digit'
+  }).format(new Date());
+  const [m, d, y] = nyStr.split('/').map(Number);
+  return new Date(y, m - 1, d);
+}
+
+function getNYDayOfYear() {
+  const nyDate  = getNYDateObj();
+  const start   = new Date(nyDate.getFullYear(), 0, 1);
+  return Math.floor((nyDate - start) / 86400000) + 1;
+}
+
+function getNYDisplayDate() {
+  return new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/New_York',
+    weekday:'long', month:'long', day:'numeric', year:'numeric'
+  }).format(new Date());
+}
+
+/* ══════════════════════════════════
+   STATE
+   ══════════════════════════════════ */
+const todayIdx = (getNYDayOfYear() - 1) % VERSES.length;
+
+function render() {
+  const v = VERSES[todayIdx];
+  document.getElementById('verseEn').textContent  = '\u201C' + v.en + '\u201D';
+  document.getElementById('verseAr').textContent  = v.ar;
+  document.getElementById('verseRef').textContent = v.ref;
+  document.getElementById('dateText').textContent = getNYDisplayDate();
+}
+
+/* ══════════════════════════════════
+   CANVAS IMAGE GENERATOR
+   ══════════════════════════════════ */
+function wrapLines(ctx, text, maxW) {
+  const words = text.split(' ');
+  const lines = [];
+  let   line  = '';
+  words.forEach(function(w) {
+    const test = line ? line + ' ' + w : w;
+    if (ctx.measureText(test).width > maxW && line) {
+      lines.push(line);
+      line = w;
+    } else {
+      line = test;
+    }
+  });
+  if (line) lines.push(line);
+  return lines;
+}
+
+async function buildCanvas() {
+  await document.fonts.ready;
+  const S   = 1080;
+  const PAD = 76;
+  const CW  = S - PAD * 2;
+  const CX  = S / 2;
+
+  const cv  = document.createElement('canvas');
+  cv.width  = S;
+  cv.height = S;
+  const c   = cv.getContext('2d');
+
+  /* Background gradient */
+  const bg = c.createLinearGradient(0, 0, 0, S);
+  bg.addColorStop(0,   '#0A1530');
+  bg.addColorStop(0.5, '#0D1E45');
+  bg.addColorStop(1,   '#080F20');
+  c.fillStyle = bg;
+  c.fillRect(0, 0, S, S);
+
+  /* Cross-grid watermark */
+  c.strokeStyle = 'rgba(212,160,23,0.09)';
+  c.lineWidth   = 0.6;
+  for (let x = 0; x <= S; x += 70) { c.beginPath(); c.moveTo(x,0); c.lineTo(x,S); c.stroke(); }
+  for (let y = 0; y <= S; y += 70) { c.beginPath(); c.moveTo(0,y); c.lineTo(S,y); c.stroke(); }
+
+  /* Radial gold glow */
+  const glow = c.createRadialGradient(CX, 200, 0, CX, 200, 500);
+  glow.addColorStop(0,   'rgba(212,160,23,0.12)');
+  glow.addColorStop(1,   'rgba(212,160,23,0)');
+  c.fillStyle = glow;
+  c.fillRect(0, 0, S, S);
+
+  /* Gold top bar */
+  c.fillStyle = '#D4A017';
+  c.fillRect(0, 0, S, 5);
+
+  /* Gold bottom bar */
+  c.fillRect(0, S-5, S, 5);
+
+  /* Church name */
+  c.fillStyle   = '#D4A017';
+  c.font        = '500 26px "Cinzel", Georgia, serif';
+  c.textAlign   = 'center';
+  c.textBaseline= 'top';
+  c.fillText('ST. GEORGE COPTIC ORTHODOX CHURCH · BROOKLYN', CX, 30);
+
+  /* Cross symbol */
+  c.fillStyle = '#D4A017';
+  c.font      = '80px serif';
+  c.fillText('\u2769', CX, 72);
+
+  /* Retreat label */
+  c.fillStyle = 'rgba(212,160,23,0.65)';
+  c.font      = '400 22px "Cinzel", Georgia, serif';
+  c.fillText('✦  WISE FOR SALVATION  ·  RETREAT 2026  ✦', CX, 168);
+
+  /* Date */
+  c.fillStyle = '#080F20';
+  c.fillRect(CX - 210, 203, 420, 38);
+  const dateGrad = c.createLinearGradient(CX-210,0,CX+210,0);
+  dateGrad.addColorStop(0, 'transparent');
+  dateGrad.addColorStop(0.1, '#D4A017');
+  dateGrad.addColorStop(0.9, '#D4A017');
+  dateGrad.addColorStop(1, 'transparent');
+  c.fillStyle   = dateGrad;
+  c.fillRect(CX-210, 203, 420, 38);
+  c.fillStyle   = '#080F20';
+  c.font        = '600 20px "Cinzel", Georgia, serif';
+  c.fillText(getNYDisplayDate().toUpperCase(), CX, 211);
+
+  /* Divider */
+  const ruleY = 256;
+  c.strokeStyle = 'rgba(212,160,23,0.3)';
+  c.lineWidth   = 1;
+  c.beginPath(); c.moveTo(PAD, ruleY); c.lineTo(S-PAD, ruleY); c.stroke();
+
+  /* English verse */
+  const v = VERSES[todayIdx];
+  c.fillStyle   = 'rgba(251,247,238,0.95)';
+  c.font        = 'italic 38px "Crimson Pro", "Georgia", serif';
+  c.textAlign   = 'center';
+  const enText  = '\u201C' + v.en + '\u201D';
+  const enLines = wrapLines(c, enText, CW);
+  const enLH    = 56;
+  let   y       = 282;
+  enLines.forEach(function(l) { c.fillText(l, CX, y); y += enLH; });
+
+  /* Arabic verse */
+  c.save();
+  c.direction   = 'rtl';
+  c.textAlign   = 'center';
+  c.fillStyle   = 'rgba(248,240,220,0.78)';
+  c.font        = '44px "Amiri", "Arial Unicode MS", serif';
+  const arLines = wrapLines(c, v.ar, CW);
+  const arLH    = 64;
+  y += 14;
+  arLines.forEach(function(l) { c.fillText(l, CX, y); y += arLH; });
+  c.restore();
+
+  /* Reference */
+  y += 10;
+  c.fillStyle = '#D4A017';
+  c.font      = '600 28px "Cinzel", Georgia, serif';
+  c.textAlign = 'center';
+  c.fillText(v.ref, CX, y);
+
+  /* Bottom rule */
+  y += 48;
+  c.strokeStyle = 'rgba(212,160,23,0.25)';
+  c.lineWidth   = 1;
+  c.beginPath(); c.moveTo(PAD, y); c.lineTo(S-PAD, y); c.stroke();
+
+  /* Bottom label */
+  c.fillStyle = 'rgba(212,160,23,0.5)';
+  c.font      = '400 20px "Cinzel", Georgia, serif';
+  c.fillText('\u2769  DAILY VERSE  \u00B7  ST. GEORGE BROOKLYN  \u2769', CX, y + 16);
+
+  return cv;
+}
+
+/* ══════════════════════════════════
+   TOAST
+   ══════════════════════════════════ */
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(function() { t.classList.remove('show'); }, 2800);
+}
+
+/* ══════════════════════════════════
+   SHARE — opens native sheet:
+   WhatsApp, Messenger, iMessage…
+   ══════════════════════════════════ */
+async function shareVerse() {
+  const v    = VERSES[todayIdx];
+  const text = '\u201C' + v.en + '\u201D\n\n'
+             + v.ar + '\n\n'
+             + '\u2014 ' + v.ref + '\n\n'
+             + '\u2726 Wise for Salvation \u00B7 St. George Brooklyn Retreat 2026';
+
+  let file = null;
+  try {
+    const cv   = await buildCanvas();
+    const blob = await new Promise(function(res) { cv.toBlob(res, 'image/png', 1.0); });
+    file = new File([blob], 'daily-verse.png', {type:'image/png'});
+  } catch(e) { /* image generation optional */ }
+
+  /* Share image + text via native sheet (WhatsApp, Messenger, iMessage, etc.) */
+  if (file && navigator.share && navigator.canShare && navigator.canShare({files:[file]})) {
+    try { await navigator.share({files:[file], title:'Daily Verse \u2014 ' + v.ref, text:text}); return; }
+    catch(e) { if (e.name === 'AbortError') return; }
+  }
+  /* Share text only via native sheet */
+  if (navigator.share) {
+    try { await navigator.share({title:'Daily Verse \u2014 ' + v.ref, text:text}); return; }
+    catch(e) { if (e.name === 'AbortError') return; }
+  }
+  /* Clipboard fallback */
+  try { await navigator.clipboard.writeText(text); showToast('\u2726 Verse copied to clipboard'); }
+  catch(e) { showToast('Copy the verse text manually'); }
+}
+
+/* ══════════════════════════════════
+   SAVE IMAGE TO GALLERY
+   ══════════════════════════════════ */
+async function downloadVerse() {
+  try {
+    const cv   = await buildCanvas();
+    const blob = await new Promise(function(res) { cv.toBlob(res, 'image/png', 1.0); });
+    const name = 'daily-verse-' + VERSES[todayIdx].ref.replace(/[\s:]/g,'-') + '.png';
+    const file = new File([blob], name, {type:'image/png'});
+
+    /* iOS / Android: share sheet → "Save to Photos" */
+    if (navigator.share && navigator.canShare && navigator.canShare({files:[file]})) {
+      await navigator.share({files:[file], title:'Save Verse Image'}); return;
+    }
+    /* Desktop: direct download */
+    const url = URL.createObjectURL(blob);
+    const a   = document.createElement('a');
+    a.href = url; a.download = name;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function() { URL.revokeObjectURL(url); }, 5000);
+    showToast('\u2713 Image downloaded');
+  } catch(e) {
+    if (e && e.name !== 'AbortError') showToast('Try taking a screenshot instead');
+  }
+}
+
+/* ══════════════════════════════════
+   INIT
+   ══════════════════════════════════ */
+render();
+</script>
+</body>
+</html>
